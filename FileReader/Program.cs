@@ -7,9 +7,9 @@
             try
             {
                 var logger = new Logger(Constants.LOGFILEPATH);
-                var words = await TextHandler.PreprocessTextAsync(Constants.FILEPATH);
-                var entries = TextHandler.CountWords(words);
-                var sorted = TextHandler.SortResults(entries);
+                var words = await TextProcessor.PreprocessTextAsync(Constants.FILEPATH);
+                var entries = WordCounter.CountWords(words);
+                var sorted = ResultSorter.SortResults(entries);
 
                 await Writer.WriteFile(Constants.OUTPUTFILEPATH, sorted);
                 await logger.LogAsync("Результаты успешно записаны в файл ResultPairs.txt");

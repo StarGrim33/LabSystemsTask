@@ -1,6 +1,8 @@
-﻿namespace FileReader
+﻿using FileReader.Interfaces;
+
+namespace FileReader
 {
-    internal class TextHandler
+    internal class TextProcessor : ITextProcessor
     {
         private static readonly int _maxWordLength = 50;
 
@@ -16,41 +18,6 @@
                 await Constants.logger.LogAsync($"Произошла ошибка: {ex.Message}");
                 throw new Exception($"Ошибка при предварительной обработке текста: {ex.Message}");
             }
-        }
-
-        public static LinkedList<WordCountEntry> CountWords(LinkedList<string> words)
-        {
-            LinkedList<WordCountEntry> result = new();
-
-            words.ForEach(word =>
-            {
-                var entryNode = result.Find(node => node.Word == word);
-
-                if (entryNode != null)
-                    entryNode.Data.Count++;
-                else
-                    result.Add(new WordCountEntry { Word = word, Count = 1 });
-            });
-
-            return result;
-        }
-
-
-        public static LinkedList<WordCountEntry> SortResults(LinkedList<WordCountEntry> results)
-        {
-            List<WordCountEntry> sortedList = results.ToList();
-
-            sortedList = sortedList
-                .OrderByDescending(entry => entry.Count)
-                .ThenBy(entry => entry.Word, StringComparer.OrdinalIgnoreCase) 
-                .ToList();
-
-            LinkedList<WordCountEntry> sortedLinkedList = new();
-
-            foreach (var entry in sortedList)
-                sortedLinkedList.Add(entry);
-
-            return sortedLinkedList;
         }
 
         private static LinkedList<string> PreprocessTextInternal(string text)

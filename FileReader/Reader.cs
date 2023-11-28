@@ -1,6 +1,8 @@
-﻿namespace FileReader
+﻿using FileReader.Interfaces;
+
+namespace FileReader
 {
-    internal class Reader
+    internal class Reader : IReader
     {
         public static async Task<string> ReadFile(string filePath)
         {
