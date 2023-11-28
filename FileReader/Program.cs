@@ -25,7 +25,7 @@
             }
         }
 
-        static void DisplayResults(List<WordCountEntry> entries)
+        static void DisplayResults(LinkedList<WordCountEntry> entries)
         {
             Console.WriteLine("Статистика слов:");
             entries.ForEach(x => Console.WriteLine($"{x.Word}: {x.Count}"));

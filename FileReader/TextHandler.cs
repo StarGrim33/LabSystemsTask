@@ -4,7 +4,7 @@
     {
         private static readonly int _maxWordLength = 50;
 
-        public static async Task<List<string>> PreprocessTextAsync(string filePath)
+        public static async Task<LinkedList<string>> PreprocessTextAsync(string filePath)
         {
             try
             {
@@ -18,33 +18,54 @@
             }
         }
 
-        public static List<WordCountEntry> CountWords(List<string> words)
+        public static LinkedList<WordCountEntry> CountWords(LinkedList<string> words)
         {
-            List<WordCountEntry> result = [];
+            LinkedList<WordCountEntry> result = new();
 
-            foreach (string word in words)
+            words.ForEach(word =>
             {
-                var entry = result.Find(w => w.Word == word);
+                var entryNode = result.Find(node => node.Word == word);
 
-                if (entry != null)
-                    entry.Count++;
+                if (entryNode != null)
+                    entryNode.Data.Count++;
                 else
-                    result.Add(new WordCountEntry { Word = word, Count = 1});
-            }
+                    result.Add(new WordCountEntry { Word = word, Count = 1 });
+            });
 
             return result;
         }
 
-        public static List<WordCountEntry> SortResults(List<WordCountEntry> results)
+
+        public static LinkedList<WordCountEntry> SortResults(LinkedList<WordCountEntry> results)
         {
-            return [.. results.OrderByDescending(word => word.Count).ThenBy(word => word.Word)];
+            List<WordCountEntry> sortedList = results.ToList();
+
+            sortedList = sortedList.OrderByDescending(entry => entry.Count)
+                                  .ThenBy(entry => entry.Word)
+                                  .ToList();
+
+            LinkedList<WordCountEntry> sortedLinkedList = new();
+
+            foreach (var entry in sortedList)
+                sortedLinkedList.Add(entry);
+
+            return sortedLinkedList;
         }
 
-        private static List<string> PreprocessTextInternal(string text)
+        private static LinkedList<string> PreprocessTextInternal(string text)
         {
             string lowerCase = text.ToLower();
-            return lowerCase.Split(new char[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries).Select(word => word.Trim()).
-                Where(word => word.All(char.IsLetter) && word.Length <= _maxWordLength).ToList();
+
+            List<string> words = lowerCase
+                .Split(new char[] { ' ', '\n', '\r', '\t' }, StringSplitOptions.RemoveEmptyEntries)
+                .Select(word => word.Trim())
+                .Where(word => word.All(char.IsLetter) && word.Length <= _maxWordLength)
+                .ToList();
+
+            LinkedList<string> result = new();
+            words.ForEach(word => result.Add(word));
+
+            return result;
         }
     }
 }

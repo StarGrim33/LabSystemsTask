@@ -2,16 +2,13 @@
 {
     internal class Writer
     {
-        public static async Task WriteFile(string filePath, List<WordCountEntry> sortedResults)
+        public static async Task WriteFile(string filePath, LinkedList<WordCountEntry> sortedResults)
         {
             try
             {
                 using StreamWriter writer = new(filePath);
 
-                foreach (var word in sortedResults)
-                {
-                    await writer.WriteLineAsync($"{word.Word} + {word.Count}");
-                }
+                sortedResults.ForEach(async word => await writer.WriteLineAsync($"{word.Word} + {word.Count}"));
 
                 Console.WriteLine("File written");
             }
