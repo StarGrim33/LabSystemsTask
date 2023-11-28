@@ -20,8 +20,7 @@
             {
                 await Constants.logger.LogAsync($"Произошла ошибка: {ex.Message}");
                 Console.WriteLine($"Произошла ошибка: {ex.Message}");
-
-                throw;
+                throw new Exception(ex.Message);
             }
         }
 
