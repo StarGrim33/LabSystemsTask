@@ -40,9 +40,10 @@
         {
             List<WordCountEntry> sortedList = results.ToList();
 
-            sortedList = sortedList.OrderByDescending(entry => entry.Count)
-                                  .ThenBy(entry => entry.Word)
-                                  .ToList();
+            sortedList = sortedList
+                .OrderByDescending(entry => entry.Count)
+                .ThenBy(entry => entry.Word, StringComparer.OrdinalIgnoreCase) 
+                .ToList();
 
             LinkedList<WordCountEntry> sortedLinkedList = new();
 
