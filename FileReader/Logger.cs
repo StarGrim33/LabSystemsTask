@@ -1,6 +1,8 @@
-﻿namespace FileReader
+﻿using FileReader.Interfaces;
+
+namespace FileReader
 {
-    internal class Logger
+    internal class Logger : ILogger
     {
         private readonly string _logFilePath;
 
