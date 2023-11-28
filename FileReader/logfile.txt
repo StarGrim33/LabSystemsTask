@@ -1,0 +1,10 @@
+28.11.2023 14:10:12: Произошла ошибка: Could not find file 'C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt'.
+28.11.2023 14:10:12: Произошла ошибка: Ошибка при чтении файла C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt: Could not find file 'C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt'.
+28.11.2023 14:10:12: Произошла ошибка: Ошибка при предварительной обработке текста: Ошибка при чтении файла C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt: Could not find file 'C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt'.
+28.11.2023 14:10:34: Произошла ошибка: Could not find file 'C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt'.
+28.11.2023 14:10:34: Произошла ошибка: Ошибка при чтении файла C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt: Could not find file 'C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt'.
+28.11.2023 14:10:34: Произошла ошибка: Ошибка при предварительной обработке текста: Ошибка при чтении файла C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt: Could not find file 'C:\Users\Влад и Аня\Desktop\C# course\LabSystemsTask\FileReader\WordsList.txt'.
+28.11.2023 14:12:32: Результаты успешно записаны в файл ResultPairs.txt
+28.11.2023 14:12:50: Результаты успешно записаны в файл ResultPairs.txt
+28.11.2023 14:19:39: Результаты успешно записаны в файл ResultPairs.txt
+28.11.2023 14:41:07: Результаты успешно записаны в файл ResultPairs.txt
