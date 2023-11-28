@@ -12,6 +12,7 @@
             }
             catch (Exception ex)
             {
+                await Constants.logger.LogAsync($"Произошла ошибка: {ex.Message}");
                 throw new Exception($"Ошибка при чтении файла {filePath}: {ex.Message}");
             }
         }
